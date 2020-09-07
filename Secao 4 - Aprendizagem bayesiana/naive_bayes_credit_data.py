@@ -27,8 +27,8 @@ cll = GaussianNB()
 # constroi a tabela de probabilidades
 cll.fit(previsores_treinamento, classe_treinamento)
 
-previsores = cll.predict(previsores_teste)
+previsoes = cll.predict(previsores_teste)
 
 from sklearn.metrics import confusion_matrix, accuracy_score
-precisao =  accuracy_score(classe_teste, previsores)
-matriz = confusion_matrix(classe_teste, previsores)
+precisao =  accuracy_score(classe_teste, previsoes)
+matriz = confusion_matrix(classe_teste, previsoes)
