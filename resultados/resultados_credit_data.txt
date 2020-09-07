@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Sep  7 12:35:07 2020
+
+@author: Luana Barros
+"""
+
+CREDIT_DATA
+
+---------------------------------------------
+
+0.938 - naive bayes (inconsistentes + faltantes + escalonamento)
+0.982 - decision tree (inconsistentes + faltantes + escalonamento)

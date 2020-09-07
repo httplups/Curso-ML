@@ -14,21 +14,17 @@ previsores[:, 1:4] = imputer.transform(previsores[:, 1:4])
 
 from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()
-
-# está correto fazer assim?
 previsores = scaler.fit_transform(previsores)
 
 from sklearn.model_selection import train_test_split
 previsores_treinamento, previsores_teste, classe_treinamento, classe_teste = train_test_split(previsores, classe, test_size=0.25, random_state=0)
 
-from sklearn.naive_bayes import GaussianNB
-cll = GaussianNB()
-
-# constroi a tabela de probabilidades
+from sklearn.tree import DecisionTreeClassifier
+cll = DecisionTreeClassifier(criterion='entropy', random_state=0)
 cll.fit(previsores_treinamento, classe_treinamento)
 
-previsoes = cll.predict(previsores_teste)
+resultados = cll.predict(previsores_teste)
 
-from sklearn.metrics import confusion_matrix, accuracy_score
-precisao =  accuracy_score(classe_teste, previsoes)
-matriz = confusion_matrix(classe_teste, previsoes)
+from sklearn.metrics import accuracy_score, confusion_matrix
+precisao = accuracy_score(classe_teste, resultados)
+matriz = confusion_matrix(classe_teste, resultados)
